@@ -1,12 +1,12 @@
 // JavaScript Document
 console.log("hi");
 
-const btnPlay = document.querySelector("button")
-
+const btnPlay = document.querySelector("button");
+const canvas = document.getElementById("canvas");
 
 const r = new rive.Rive({
     src: "./images/dogy.riv",
-    canvas: document.getElementById("canvas"),
+    canvas: canvas,
     autoplay: true,
     stateMachines: 'State Machine 1',
     fit: rive.Fit.cover,
