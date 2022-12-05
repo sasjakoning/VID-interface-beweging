@@ -27,3 +27,30 @@ main > section > button {
   border-radius: 1rem;
   border: none;
 }
+
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 1;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+
+  animation: loader 2.5s forwards;
+}
+
+@keyframes loader {
+  90% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

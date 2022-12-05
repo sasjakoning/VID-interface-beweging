@@ -1,22 +1,41 @@
 // JavaScript Document
 console.log("hi");
 
-const btnPlay = document.querySelector("button");
-const canvas = document.getElementById("canvas");
+const btnPlay = document.querySelector("#play");
+const btnCatch = document.querySelector("#catch");
+const dogCanvas = document.getElementById("dogyCanvas");
+const loaderCanvas = document.getElementById("loaderCanvas");
 
-const r = new rive.Rive({
+const dogyRive = new rive.Rive({
     src: "./images/dogy.riv",
-    canvas: canvas,
+    canvas: dogyCanvas,
     autoplay: true,
-    stateMachines: 'State Machine 1',
+    stateMachines: 'dogy-states',
+    artboard: "Dogy",
     fit: rive.Fit.cover,
     onLoad: (_) => {
-        const inputs = r.stateMachineInputs("State Machine 1")
-        const trigger = inputs.find(i => i.name === "Play")
+        const inputs = dogyRive.stateMachineInputs("dogy-states")
+        const triggerPlay = inputs.find(i => i.name === "Play")
         btnPlay.onclick = (e) => {
             e.preventDefault();
-            trigger.fire()
+            console.log("hellooo")
+            triggerPlay.fire()
+        }
+
+        const triggerCatch = inputs.find(i => i.name === "Catch")
+        btnCatch.onclick = (e) => {
+            e.preventDefault();
+            console.log("hellooo")
+            triggerCatch.fire()
         }
     }
 });
  
+const loaderRive = new rive.Rive({
+    src: "./images/dogy.riv",
+    canvas: loaderCanvas,
+    autoplay: true,
+    stateMachines: 'loader-states',
+    artboard: "loader",
+    fit: rive.Fit.cover,
+});
