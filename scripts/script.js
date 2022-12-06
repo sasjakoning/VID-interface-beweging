@@ -7,19 +7,29 @@ const loaderCanvas = document.getElementById("loaderCanvas");
 
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
-if(vw < 568 ){
-    console.log("small")
-    dogCanvas.width = window.innerWidth;
-    dogCanvas.height = window.innerWidth;
-}else if(vw >= 568 && vw < 992){
-    console.log("medium")
-    dogCanvas.width = window.innerWidth;
-    dogCanvas.height = window.innerWidth;
-}else if(vw >= 992){
-    console.log("large")
-    dogCanvas.width = 900;
-    dogCanvas.height = 900;
-}
+// window.addEventListener("resize", ()=> {
+//     if(vw < 568 ){
+//         console.log("small")
+//         dogyRive.resizeToCanvas()
+//         dogCanvas.width = window.innerWidth;
+//         dogCanvas.height = window.innerWidth;
+//     }else if(vw >= 568 && vw < 992){
+//         console.log("medium")
+//         dogyRive.resizeToCanvas()
+//         dogCanvas.width = window.innerWidth;
+//         dogCanvas.height = window.innerWidth;
+//     }else if(vw >= 992){
+//         console.log("large")
+//         // dogyRive.resizeToCanvas()
+//         dogCanvas.width = 900;
+//         dogCanvas.height = 900;
+//     }
+
+// })
+
+window.addEventListener("resize", () => {
+    dogyRive.resizeDrawingSurfaceToCanvas();
+})
 
 
 const dogyRive = new rive.Rive({
@@ -30,6 +40,8 @@ const dogyRive = new rive.Rive({
     artboard: "dogy",
     fit: rive.Fit.cover,
     onLoad: (_) => {
+        dogyRive.resizeDrawingSurfaceToCanvas();
+
         const inputs = dogyRive.stateMachineInputs("dogy-states")
         const triggerPlay = inputs.find(i => i.name === "play")
         btnPlay.onclick = (e) => {
@@ -45,9 +57,13 @@ const dogyRive = new rive.Rive({
 
         const triggerWalk = inputs.find(i => i.name === "walk")
         btnWalk.onclick = (e) => {
-            console.log("sadas")
             e.preventDefault();
-            triggerWalk.fire()
+
+            if(triggerWalk.value == false) {
+                triggerWalk.value = true
+            }else {
+                triggerWalk.value = false
+            }
         }
     }
 });
