@@ -29,10 +29,9 @@ main > article {
   max-width: 80rem;
   width: calc(100% - 2rem);
   aspect-ratio: 16/9;
-  background-image: url(../images/dogy-background-lines.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center bottom;
+  background-image: url(../images/dogy-background-lines-loopable.svg);
+  background-size: 200% 100%;
+  background-position: 100% bottom;
 
   display: flex;
   flex-direction: column;
@@ -41,6 +40,16 @@ main > article {
   position: relative;
 
   border: var(--border);
+}
+
+.backgroundAnim {
+  animation: background-loop 11s infinite linear;
+}
+
+@keyframes background-loop {
+  to {
+    background-position: -100% bottom;
+  }
 }
 
 .btnContainer {
@@ -55,9 +64,41 @@ main > article {
 
 .btnContainer > button {
   background-color: var(--background-special);
-  padding: 1rem 4rem;
+  aspect-ratio: 1/1;
   border: var(--border);
   font-weight: bold;
+  border-radius: 50%;
+}
+
+.btnContainer > button:active {
+  background-color: red;
+}
+
+.btnContainer > div {
+  background-color: var(--background-special);
+  aspect-ratio: 1/1;
+  border: var(--border);
+  border-radius: 50%;
+
+  position: relative;
+}
+
+.btnContainer > div > input {
+  aspect-ratio: 1/1;
+  height: 100%;
+  appearance: none;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 10;
+}
+
+.btnContainer > div > input:checked {
+  background-color: red;
+}
+
+.btnContainer > div > canvas {
+  position: absolute;
+  z-index: 0;
 }
 
 main article > canvas {
@@ -106,6 +147,16 @@ main article > canvas {
     background-position: center -10%;
 
     justify-content: start;
+    align-items: center;
+  }
+
+  .btnContainer {
+    flex-direction: row;
+    padding: .5rem;
+  }
+
+  .btnContainer > button {
+    padding: .5rem;
   }
 
   main article > canvas {

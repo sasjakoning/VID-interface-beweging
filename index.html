@@ -17,12 +17,15 @@
 
     <main>
 
-        <article>
+        <article class="animContainer">
             <canvas id="dogyCanvas" width="1000" height="1000"></canvas>
             <section class="btnContainer">
-                <button id="play">Play !</button>
-                <button id="catch">Catch !</button>
-                <button id="walk">Walk !</button>
+                <button id="play"><canvas id="btnPlayCanvas" width="100" height="100"></canvas></button>
+                <button id="catch"><canvas id="btnCatchCanvas" width="100" height="100"></canvas></button>
+                <div id="walk">
+                    <canvas id="btnWalkCanvas" width="100" height="100"></canvas>
+                    <input type="checkbox" name="walkInput">
+                </div>
             </section>
         </article>
     
