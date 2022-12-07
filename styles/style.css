@@ -32,11 +32,11 @@ main > article {
   background-image: url(../images/dogy-background-lines-loopable.svg);
   background-size: 200% 100%;
   background-position: 100% bottom;
-
+  background-repeat: repeat-x;
   display: flex;
   flex-direction: column;
   align-items: end;
-  justify-content: end;
+  justify-content: space-between;
   position: relative;
 
   border: var(--border);
@@ -110,8 +110,23 @@ main article > canvas {
   aspect-ratio: 1/1;
 }
 
+.audio {
+  align-self: start;
+  padding: 1rem;
+  margin: 1rem;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  border: var(--border);
+  border-radius: 50%;
+
+  background: url(../images/audio-off.svg) no-repeat;
+  background-size: 80%;
+  background-position: center;
+}
+
 .loader {
   position: fixed;
+  z-index: 1000;
   top: 0;
   bottom: 0;
   left: 0;
@@ -143,12 +158,23 @@ main article > canvas {
   main > article {
     aspect-ratio: 3/4;
     width: calc(100% - 2rem);
-    background-size: 250% 90%;
-    background-position: center -10%;
+    background-size: 450% 98%;
+    background-position: 100% -206%;
 
     justify-content: start;
     align-items: center;
   }
+
+  .backgroundAnim {
+    animation: background-loop-small 18s infinite linear;
+  }
+  
+  @keyframes background-loop-small {
+    to {
+      background-position: -100% -206%;
+    }
+  }
+
 
   .btnContainer {
     flex-direction: row;

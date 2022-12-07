@@ -50,7 +50,13 @@ const dogyRive = new rive.Rive({
         }
     }
 });
- 
+
+
+const loaderCanvas = document.getElementById("loaderCanvas");
+const btnPlayCanvas = document.getElementById("btnPlayCanvas");
+const BtnCatchCanvas = document.getElementById("btnCatchCanvas");
+const BtnWalkCanvas = document.getElementById("btnWalkCanvas");
+
 // const loaderRive = new rive.Rive({
 //     src: "./images/dogy.riv",
 //     canvas: loaderCanvas,
@@ -59,11 +65,6 @@ const dogyRive = new rive.Rive({
 //     artboard: "loader",
 //     fit: rive.Fit.cover,
 // });
-
-const loaderCanvas = document.getElementById("loaderCanvas");
-const btnPlayCanvas = document.getElementById("btnPlayCanvas");
-const BtnCatchCanvas = document.getElementById("btnCatchCanvas");
-const BtnWalkCanvas = document.getElementById("btnWalkCanvas");
 
 
 const btnPlayRive = new rive.Rive({
