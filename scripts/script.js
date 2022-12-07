@@ -112,14 +112,14 @@ const btnPlayCanvas = document.getElementById("btnPlayCanvas");
 const BtnCatchCanvas = document.getElementById("btnCatchCanvas");
 const BtnWalkCanvas = document.getElementById("btnWalkCanvas");
 
-// const loaderRive = new rive.Rive({
-//     src: "./images/dogy.riv",
-//     canvas: loaderCanvas,
-//     autoplay: true,
-//     stateMachines: 'loader-states',
-//     artboard: "loader",
-//     fit: rive.Fit.cover,
-// });
+const loaderRive = new rive.Rive({
+    src: "./images/dogy.riv",
+    canvas: loaderCanvas,
+    autoplay: true,
+    stateMachines: 'loader-states',
+    artboard: "loader",
+    fit: rive.Fit.cover,
+});
 
 
 const btnPlayRive = new rive.Rive({
