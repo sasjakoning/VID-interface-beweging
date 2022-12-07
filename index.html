@@ -21,7 +21,7 @@
 
             <canvas id="dogyCanvas" width="1000" height="1000"></canvas>
             
-            <button class="audio" aria-label="volume control"></button>
+            <button class="audioControl" aria-label="volume control"></button>
 
             <section class="btnContainer">
                 <button aria-label="dog playing animation" id="play"><canvas id="btnPlayCanvas" width="100" height="100"></canvas></button>
@@ -30,14 +30,22 @@
 
                 <button aria-label="dog walking animation" id="walk"><canvas id="btnWalkCanvas" width="100" height="100"></canvas></button>
             </section>
-            
+
         </article>
     
     </main>
 
-    <audio id="myAudio">
+    <audio id="audio" loop>
         <source src="./images/garden.wav" type="audio/wav">
-        Your browser does not support the audio element.
+    </audio>
+    <audio id="audio-bark">
+        <source src="./images/bark.wav" type="audio/wav">
+    </audio>
+    <audio id="audio-squeak">
+        <source src="./images/squeak.wav" type="audio/wav">
+    </audio>
+    <audio id="audio-walk" loop>
+        <source src="./images/walking.wav" type="audio/wav">
     </audio>
 
     <script src="https://unpkg.com/@rive-app/canvas@1.0.79"></script>

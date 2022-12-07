@@ -1,4 +1,30 @@
 
+const audio = document.querySelector("#audio");
+const audioBark = document.querySelector("#audio-bark");
+const audioSqueak = document.querySelector("#audio-squeak");
+const audioWalk = document.querySelector("#audio-walk");
+const audioControl = document.querySelector(".audioControl");
+let audioState = false;
+
+audioControl.addEventListener("click", () => {
+
+    if(audio.paused){
+        console.log("playing")
+        audio.play()
+        audioState = true;
+        audioControl.style.backgroundImage = `url("../images/audio-on.svg")`
+    }else {
+        console.log("pausing")
+        audio.pause()
+        audioState = false;
+        audioControl.style.backgroundImage = `url("../images/audio-off.svg")`
+    }
+})
+
+
+
+
+
 const btnPlay = document.querySelector("#play");
 const btnCatch = document.querySelector("#catch");
 const btnWalk = document.querySelector("#walk");
@@ -28,12 +54,25 @@ const dogyRive = new rive.Rive({
         btnPlay.onclick = (e) => {
             e.preventDefault();
             triggerPlay.fire()
+
+            if(audioState == true){
+                setTimeout(() => {
+                    audioBark.play();
+                }, 2100);
+            }
         }
 
         const triggerCatch = inputs.find(i => i.name === "catch")
         btnCatch.onclick = (e) => {
             e.preventDefault();
             triggerCatch.fire()
+
+            if(audioState == true){
+                setTimeout(() => {
+                    audioSqueak.volume = 0.5
+                    audioSqueak.play();
+                }, 200);
+            }
         }
 
         const triggerWalk = inputs.find(i => i.name === "walk")
@@ -43,9 +82,25 @@ const dogyRive = new rive.Rive({
             if(triggerWalk.value == false) {
                 triggerWalk.value = true
                 animContainer.classList.add("backgroundAnim")
+                btnPlay.classList.add("disabled");
+                btnCatch.classList.add("disabled");
+                if(audioState == true){
+                    setTimeout(() => {
+                        audioWalk.volume = 0.5
+                        audioWalk.play();
+                    }, 200);
+                }
             }else {
                 triggerWalk.value = false
                 animContainer.classList.remove("backgroundAnim")
+                btnPlay.classList.remove("disabled");
+                btnCatch.classList.remove("disabled");
+                if(audioState == true){
+                    setTimeout(() => {
+                        audioWalk.volume = 0.5
+                        audioWalk.pause();
+                    }, 200);
+                }
             }
         }
     }
