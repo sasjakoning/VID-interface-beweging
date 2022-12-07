@@ -119,6 +119,10 @@ const loaderRive = new rive.Rive({
     stateMachines: 'loader-states',
     artboard: "loader",
     fit: rive.Fit.cover,
+    onLoad: (_) => {
+
+        btnPlayRive.resizeDrawingSurfaceToCanvas();
+    }
 });
 
 
