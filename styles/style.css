@@ -125,6 +125,7 @@ main article > canvas {
 }
 
 .loader > canvas {
+  max-width: 50rem;
   width: 100%;
   aspect-ratio: 1/1;
 }
