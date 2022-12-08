@@ -36,6 +36,7 @@ const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth
 
 
 window.addEventListener("resize", () => {
+    
     dogyRive.resizeDrawingSurfaceToCanvas();
 })
 
@@ -48,6 +49,8 @@ const dogyRive = new rive.Rive({
     artboard: "dogy",
     fit: rive.Fit.cover,
     onLoad: (_) => {
+
+        dogyRive.resizeDrawingSurfaceToCanvas();
 
         const inputs = dogyRive.stateMachineInputs("dogy-states")
         const triggerPlay = inputs.find(i => i.name === "play")
@@ -121,7 +124,7 @@ const loaderRive = new rive.Rive({
     fit: rive.Fit.cover,
     onLoad: (_) => {
 
-        btnPlayRive.resizeDrawingSurfaceToCanvas();
+        loaderRive.resizeDrawingSurfaceToCanvas();
     }
 });
 

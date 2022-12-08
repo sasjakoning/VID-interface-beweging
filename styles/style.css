@@ -14,13 +14,13 @@
 
 body {
   width: 100vw;
-  height: 100vh;
   background-color: rgb(118, 118, 118);
 }
 
 main {
   width: 100%;
   height: 100%;
+  margin-top: 2rem;
   display: grid;
   place-items: center;
 }
@@ -31,7 +31,7 @@ main {
 
 
 main > article {
-  max-width: 80rem;
+  max-width: 72rem;
   width: calc(100% - 2rem);
   aspect-ratio: 16/9;
   background-image: url(../images/dogy-background-lines-loopable.svg);
@@ -80,31 +80,8 @@ main > article {
   background-color: rgb(239, 239, 239);
 }
 
-.btnContainer > div {
-  background-color: var(--background-special);
-  aspect-ratio: 1/1;
-  border: var(--border);
-  border-radius: 50%;
-
-  position: relative;
-}
-
-.btnContainer > div > input {
-  aspect-ratio: 1/1;
-  height: 100%;
-  appearance: none;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 10;
-}
-
-.btnContainer > div > input:checked {
-  background-color: red;
-}
-
-.btnContainer > div > canvas {
-  position: absolute;
-  z-index: 0;
+.btnContainer > button > canvas {
+  width: 5rem;
 }
 
 main article > canvas {
@@ -145,6 +122,11 @@ main article > canvas {
   pointer-events: none;
 
   animation: loader 2.5s forwards;
+}
+
+.loader > canvas {
+  width: 100%;
+  aspect-ratio: 1/1;
 }
 
 @keyframes loader {
@@ -189,7 +171,11 @@ main article > canvas {
   }
 
   .btnContainer > button {
-    padding: .5rem;
+    padding: .1rem;
+  }
+
+  .btnContainer > button > canvas {
+    width: 4rem;
   }
 
   main article > canvas {
