@@ -29,6 +29,27 @@ main {
   background: darkgray !important;
 }
 
+.foreground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+
+  background-image: url(../images/dogy-background-lines-loopable-foreground.svg);
+  background-size: 201% 101%;
+  background-position: 100% -217%;
+  background-repeat: repeat-x;
+
+  animation: foreground-loop 9s infinite linear;
+  animation-play-state: paused;
+}
+
+@keyframes foreground-loop {
+  to {
+    background-position: -99% -217%;
+  }
+}
 
 main > article {
   max-width: 72rem;

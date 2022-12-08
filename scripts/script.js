@@ -25,6 +25,7 @@ const btnCatch = document.querySelector("#catch");
 const btnWalk = document.querySelector("#walk");
 const dogCanvas = document.getElementById("dogyCanvas");
 const animContainer = document.querySelector(".animContainer");
+const animForeground = document.querySelector(".foreground")
 
 const vw = Math.max(
   document.documentElement.clientWidth || 0,
@@ -78,6 +79,7 @@ const dogyRive = new rive.Rive({
       if (triggerWalk.value == false) {
         triggerWalk.value = true;
         animContainer.classList.add("backgroundAnim");
+        animForeground.classList.add("backgroundAnim");
         btnPlay.classList.add("disabled");
         btnCatch.classList.add("disabled");
         if (audioState == true) {
@@ -92,6 +94,7 @@ const dogyRive = new rive.Rive({
 
         setTimeout(() => {
             animContainer.classList.remove("backgroundAnim");
+            animForeground.classList.remove("backgroundAnim");
         }, 100);
         btnPlay.classList.remove("disabled");
         btnCatch.classList.remove("disabled");
