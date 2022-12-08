@@ -35,7 +35,7 @@ main > article {
   width: calc(100% - 2rem);
   aspect-ratio: 16/9;
   background-image: url(../images/dogy-background-lines-loopable.svg);
-  background-size: 200% 100%;
+  background-size: 200% 101%;
   background-position: 100% bottom;
   background-repeat: repeat-x;
   background-color: var(--background);
@@ -46,10 +46,12 @@ main > article {
   position: relative;
 
   border: var(--border);
+  animation: background-loop 11s infinite linear;
+  animation-play-state: paused;
 }
 
 .backgroundAnim {
-  animation: background-loop 11s infinite linear;
+  animation-play-state: running;
 }
 
 @keyframes background-loop {
@@ -153,10 +155,8 @@ main article > canvas {
 
     justify-content: start;
     align-items: center;
-  }
-
-  .backgroundAnim {
     animation: background-loop-small 18s infinite linear;
+    animation-play-state: paused;
   }
   
   @keyframes background-loop-small {

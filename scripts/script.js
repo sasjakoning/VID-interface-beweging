@@ -1,3 +1,4 @@
+
 const audio = document.querySelector("#audio");
 const audioBark = document.querySelector("#audio-bark");
 const audioSqueak = document.querySelector("#audio-squeak");
@@ -87,7 +88,11 @@ const dogyRive = new rive.Rive({
         }
       } else {
         triggerWalk.value = false;
-        animContainer.classList.remove("backgroundAnim");
+
+
+        setTimeout(() => {
+            animContainer.classList.remove("backgroundAnim");
+        }, 100);
         btnPlay.classList.remove("disabled");
         btnCatch.classList.remove("disabled");
         if (audioState == true) {
@@ -153,3 +158,7 @@ const btnWalkRive = new rive.Rive({
     btnWalkRive.resizeDrawingSurfaceToCanvas();
   },
 });
+
+
+const background = document.querySelector("article");
+
