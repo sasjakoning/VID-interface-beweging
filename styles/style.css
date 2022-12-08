@@ -167,6 +167,19 @@ main article > canvas {
 
 
 @media only screen and (max-width: 50rem) {
+
+  .foreground {
+    background-size: 450% 102%;
+    background-position: 100% -236%;
+    animation-play-state: paused;
+    animation: background-loop-small-foreground 15s infinite linear;
+  }
+
+  @keyframes background-loop-small-foreground {
+    to {
+      background-position: -100% -236%;
+    }
+  }
   
   main > article {
     aspect-ratio: 3/4;
